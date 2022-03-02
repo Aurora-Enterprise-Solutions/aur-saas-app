@@ -1,0 +1,75 @@
+html {
+  height: 100%;
+  background-color: var(--aur-background-color);
+}
+html body {
+  margin: 0;
+}
+html body,
+html body #__nuxt,
+html body #__layout {
+  height: 100%;
+}
+
+.aur-layout {
+  height: 100%;
+  overflow: auto;
+}
+.aur-layout .aur-page {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.aur-layout-blank {
+  background-color: var(--aur-background-color);
+}
+
+.aur-layout-login {
+  background-color: var(--aur-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.aur-layout-login .aur-logo-wrapper,
+.aur-layout-login .aur-content-wrapper,
+.aur-layout-login .aur-rigths {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.aur-layout-login .aur-logo-wrapper {
+  min-width: 200px;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px 20px 30px 20px;
+}
+.aur-layout-login .aur-content-wrapper {
+  flex-grow: 1;
+  align-items: flex-start;
+  padding: 0 20px;
+}
+.aur-layout-login .aur-rigths {
+  padding: 20px;
+  text-align: center;
+}
+.aur-layout-login .aur-page {
+  min-width: 300px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.aur-layout-default {
+  display: flex;
+  flex-direction: column;
+}
+.aur-layout-default .aur-layout-content {
+  flex-grow: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=styles.css.map */
