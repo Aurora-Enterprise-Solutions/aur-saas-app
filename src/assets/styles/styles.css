@@ -50,7 +50,7 @@ html body #__layout {
 .aur-layout-login .aur-content-wrapper {
   flex-grow: 1;
   align-items: flex-start;
-  padding: 0 20px;
+  padding: 0 20px !important;
 }
 .aur-layout-login .aur-rigths {
   padding: 20px;
@@ -71,7 +71,6 @@ html body #__layout {
 .aur-page-login-card {
   width: 100%;
   max-width: 400px !important;
-  min-width: 300px;
 }
 
 /*# sourceMappingURL=styles.css.map */

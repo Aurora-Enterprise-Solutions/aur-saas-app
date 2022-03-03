@@ -5,9 +5,9 @@
             <v-card class="aur-page-login-card">
 
                 <v-card-title>
-                    <h5 class="aur-card-title">
+                    <h4 class="aur-card-title">
                         {{ $t('pages.login.title') }}
-                    </h5>
+                    </h4>
                 </v-card-title>
 
                 <v-card-text>
@@ -15,12 +15,9 @@
                     <v-form ref="LoginForm">
                         <v-row>
                             <v-col :span="12">
-                                <v-text-field
+                                <AurTextField
                                     v-model="modelForm.email"
                                     :label="$t('pages.login.field.email.label')"
-                                    hide-details="auto"
-                                    outlined
-                                    dense
                                     :rules="rules.email"
                                 />
                             </v-col>
@@ -28,58 +25,52 @@
 
                         <v-row>
                             <v-col :span="12">
-                                <v-text-field
+                                <AurTextField
                                     v-model="modelForm.password"
                                     :label="$t('pages.login.field.password.label')"
-                                    type="password"
-                                    hide-details="auto"
-                                    outlined
-                                    dense
                                     :rules="rules.password"
+                                    type="password"
                                 />
                             </v-col>
                         </v-row>
 
                         <v-row>
                             <v-col :span="12">
-                                <v-text-field
+                                <AurTextField
                                     v-model="modelForm.cdn"
                                     :label="$t('pages.login.field.cdn.label')"
-                                    hide-details="auto"
-                                    outlined
-                                    dense
                                     :rules="rules.cdn"
-                                    @keydown="keydown"
+                                    @keydown.native="keydown"
                                 />
                             </v-col>
                         </v-row>
 
                         <v-row class="btn-login">
                             <v-col :span="12">
-                                <v-btn
+                                <AurButton
                                     aur-type="secondary"
                                     rounded
                                     block
                                     :loading="isLogin"
-                                    @click="submit"
+                                    @click.native="submit"
                                 >
                                     {{ $t('pages.login.button.login') }}
-                                </v-btn>
+                                </AurButton>
                             </v-col>
                         </v-row>
 
                         <v-row class="btn-recover">
                             <v-col :span="12">
-                                <v-btn
+                                <AurButton
                                     aur-type="secondary"
                                     rounded
                                     block
                                     text
                                     :disabled="isLogin"
-                                    @click="recover"
+                                    @click.native="recover"
                                 >
                                     {{ $t('pages.login.button.recover') }}
-                                </v-btn>
+                                </AurButton>
                             </v-col>
                         </v-row>
                     </v-form>
@@ -115,90 +106,90 @@ export default {
                     v => !!v || this.$t('global.rule.required'),
                 ],
             },
+
+            cdnLocalStorageValue: null,
         }
 
     },
 
     beforeMount() {
 
-        if (localStorage.getItem('aur.lastCDN') != null)
-            this.modelForm['cdn'] = localStorage.getItem('aur.lastCDN')
+        this.cdnLocalStorageValue = this.$getLocalStorageCV(this.CV.CDN_KEY_LOCAL_STORAGE)
+
+        if (localStorage.getItem(this.cdnLocalStorageValue) != null)
+            this.modelForm['cdn'] = localStorage.getItem(this.cdnLocalStorageValue)
 
     },
 
     methods: {
         async submit() {
 
-            await this.$refs.form.validate(async(error, values) => {
+            if (this.$refs.LoginForm.validate() ) {
 
-                if (!error) {
+                this.isLogin = true
 
-                    this.isLogin = true
+                try {
 
-                    try {
+                    await this.$auth.login( { data: values } )
+                    localStorage.setItem(this.cdnLocalStorageValue, values.cdn.toLowerCase() )
 
-                        await this.$auth.login( { data: values } )
-                        localStorage.setItem('aur.lastCDN', values.cdn.toLowerCase() )
+                }
+                catch (error) {
 
-                    }
-                    catch (error) {
+                    // if (error.response) {
 
-                        if (error.response) {
+                    //     switch (error.response.status) {
 
-                            switch (error.response.status) {
+                    //         case this.$httpStatus.FORBIDDEN: {
 
-                                case this.$httpStatus.FORBIDDEN: {
+                    //             this.$notification( {
+                    //                 type    : 'error',
+                    //                 message : this.$t('global.error.INACTIVE_USER'),
+                    //             } )
 
-                                    this.$notification( {
-                                        type    : 'error',
-                                        message : this.$t('global.error.INACTIVE_USER'),
-                                    } )
+                    //             break
 
-                                    break
+                    //         }
 
-                                }
+                    //         case this.$httpStatus.UNAUTHORIZED: {
 
-                                case this.$httpStatus.UNAUTHORIZED: {
+                    //             this.$notification( {
+                    //                 type    : 'error',
+                    //                 message : this.$t('global.error.UNKNOWN_USER'),
+                    //             } )
 
-                                    this.$notification( {
-                                        type    : 'error',
-                                        message : this.$t('global.error.UNKNOWN_USER'),
-                                    } )
+                    //             break
 
-                                    break
+                    //         }
 
-                                }
+                    //         default: {
 
-                                default: {
+                    //             this.$notification( {
+                    //                 type    : 'error',
+                    //                 message : this.$t('global.error.DEFAULT_ERROR_MESSAGE'),
+                    //             } )
 
-                                    this.$notification( {
-                                        type    : 'error',
-                                        message : this.$t('global.error.DEFAULT_ERROR_MESSAGE'),
-                                    } )
+                    //         }
 
-                                }
+                    //     }
 
-                            }
+                    // }
+                    // else {
 
-                        }
-                        else {
+                    //     this.$notification( {
+                    //         type    : 'error',
+                    //         message : this.$t('global.error.DEFAULT_ERROR_MESSAGE'),
+                    //     } )
 
-                            this.$notification( {
-                                type    : 'error',
-                                message : this.$t('global.error.DEFAULT_ERROR_MESSAGE'),
-                            } )
+                    // }
 
-                        }
-
-                        this.isLogin = false
-
-                    }
-
-                    this.isLogin = false
+                    // this.isLogin = false
 
                 }
 
-            } )
+                this.isLogin = false
+
+            }
 
         },
 

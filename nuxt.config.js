@@ -3,7 +3,7 @@ import localeMessages from './src/static/locales'
 
 export default {
     // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-    ssr: false,
+    ssr: true,
 
     server: {
         port : 3000,
@@ -33,6 +33,7 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
+        { src: '@/plugins/global-mixins', mode: 'client' },
         { src: '@/plugins/masonry', mode: 'client' },
         // '@/plugins/mq',
         // { src: '@/plugins/persisted-state', mode: 'client' },
