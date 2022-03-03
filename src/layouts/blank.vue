@@ -1,5 +1,5 @@
 <template>
-    <div class="layout layout-blank">
+    <v-app class="layout layout-blank">
         <Nuxt />
-    </div>
+    </v-app>
 </template>

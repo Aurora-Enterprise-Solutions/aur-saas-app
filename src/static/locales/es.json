@@ -43,16 +43,13 @@
             "title": "Inicio de Sesión",
             "field": {
                 "email": {
-                    "label": "Usuario",
-                    "placeholder": "correo electrónico"
+                    "label": "Usuario"
                 },
                 "password": {
-                    "label": "Contraseña",
-                    "placeholder": "••••••••"
+                    "label": "Contraseña"
                 },
                 "cdn": {
-                    "label": "CDN",
-                    "placeholder": "cl.empresa.aur"
+                    "label": "CDN"
                 }
             },
             "button": {

@@ -1,10 +1,10 @@
 <template>
-    <div class="layout layout-default">
+    <v-app class="layout layout-default">
 
         <div class="layout-content">
             <Nuxt />
         </div>
-    </div>
+    </v-app>
 </template>
 
 <script>

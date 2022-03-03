@@ -1,51 +1,95 @@
 <template>
-    <div class="aur-page aur-page-login">
+    <v-container fluid class="aur-page aur-page-login">
 
-        <v-card :title="$t('pages.login.title')" :border="false">
-            <au-form ref="form" :model="modelForm" :rules="rules" :colon="false">
-                <au-row>
-                    <au-col :span="24">
-                        <au-form-item prop="email" :label="$t('pages.login.field.email.label')">
-                            <au-input v-model="modelForm.email" :placeholder="$t('pages.login.field.email.placeholder')" />
-                        </au-form-item>
-                    </au-col>
-                </au-row>
+        <v-row justify="center">
+            <v-card class="aur-page-login-card">
 
-                <au-row>
-                    <au-col :span="24">
-                        <au-form-item prop="password" :label="$t('pages.login.field.password.label')">
-                            <au-input ref="password" v-model="modelForm.password" :placeholder="$t('pages.login.field.password.placeholder')" type="password" />
-                        </au-form-item>
-                    </au-col>
-                </au-row>
+                <v-card-title>
+                    <h5 class="aur-card-title">
+                        {{ $t('pages.login.title') }}
+                    </h5>
+                </v-card-title>
 
-                <au-row>
-                    <au-col :span="24">
-                        <au-form-item prop="cdn" :label="$t('pages.login.field.cdn.label')">
-                            <au-input v-model="modelForm.cdn" :placeholder="$t('pages.login.field.cdn.placeholder')" @keydown="keydown" />
-                        </au-form-item>
-                    </au-col>
-                </au-row>
+                <v-card-text>
 
-                <au-row class="btn-login">
-                    <au-col :span="24">
-                        <au-button circle block :loading="isLogin" @click="submit">
-                            {{ $t('pages.login.button.login') }}
-                        </au-button>
-                    </au-col>
-                </au-row>
+                    <v-form ref="LoginForm">
+                        <v-row>
+                            <v-col :span="12">
+                                <v-text-field
+                                    v-model="modelForm.email"
+                                    :label="$t('pages.login.field.email.label')"
+                                    hide-details="auto"
+                                    outlined
+                                    dense
+                                    :rules="rules.email"
+                                />
+                            </v-col>
+                        </v-row>
 
-                <au-row class="btn-recover">
-                    <au-col :span="24">
-                        <au-button circle block transparent :disabled="isLogin" @click="recover">
-                            {{ $t('pages.login.button.recover') }}
-                        </au-button>
-                    </au-col>
-                </au-row>
-            </au-form>
-        </v-card>
+                        <v-row>
+                            <v-col :span="12">
+                                <v-text-field
+                                    v-model="modelForm.password"
+                                    :label="$t('pages.login.field.password.label')"
+                                    type="password"
+                                    hide-details="auto"
+                                    outlined
+                                    dense
+                                    :rules="rules.password"
+                                />
+                            </v-col>
+                        </v-row>
 
-    </div>
+                        <v-row>
+                            <v-col :span="12">
+                                <v-text-field
+                                    v-model="modelForm.cdn"
+                                    :label="$t('pages.login.field.cdn.label')"
+                                    hide-details="auto"
+                                    outlined
+                                    dense
+                                    :rules="rules.cdn"
+                                    @keydown="keydown"
+                                />
+                            </v-col>
+                        </v-row>
+
+                        <v-row class="btn-login">
+                            <v-col :span="12">
+                                <v-btn
+                                    aur-type="secondary"
+                                    rounded
+                                    block
+                                    :loading="isLogin"
+                                    @click="submit"
+                                >
+                                    {{ $t('pages.login.button.login') }}
+                                </v-btn>
+                            </v-col>
+                        </v-row>
+
+                        <v-row class="btn-recover">
+                            <v-col :span="12">
+                                <v-btn
+                                    aur-type="secondary"
+                                    rounded
+                                    block
+                                    text
+                                    :disabled="isLogin"
+                                    @click="recover"
+                                >
+                                    {{ $t('pages.login.button.recover') }}
+                                </v-btn>
+                            </v-col>
+                        </v-row>
+                    </v-form>
+
+                </v-card-text>
+
+            </v-card>
+        </v-row>
+
+    </v-container>
 </template>
 
 <script>
@@ -60,15 +104,15 @@ export default {
             modelForm : {},
             rules     : {
                 email: [
-                    { type: 'required', message: this.$t('global.rule.required') },
+                    v => !!v || this.$t('global.rule.required'),
                 ],
 
                 password: [
-                    { type: 'required', message: this.$t('global.rule.required') },
+                    v => !!v || this.$t('global.rule.required'),
                 ],
 
                 cdn: [
-                    { type: 'required', message: this.$t('global.rule.required') },
+                    v => !!v || this.$t('global.rule.required'),
                 ],
             },
         }

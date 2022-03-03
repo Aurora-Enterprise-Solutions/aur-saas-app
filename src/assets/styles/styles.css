@@ -1,6 +1,5 @@
 html {
   height: 100%;
-  background-color: var(--aur-background-color);
 }
 html body {
   margin: 0;
@@ -20,16 +19,15 @@ html body #__layout {
   overflow: auto;
 }
 
-.aur-layout-blank {
-  background-color: var(--aur-background-color);
-}
-
 .aur-layout-login {
-  background-color: var(--aur-background-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+.aur-layout-login .v-application--wrap {
+  width: 100%;
+  align-items: center;
 }
 .aur-layout-login .aur-logo-wrapper,
 .aur-layout-login .aur-content-wrapper,
@@ -46,6 +44,9 @@ html body #__layout {
   max-width: 300px;
   margin: 20px 20px 30px 20px;
 }
+.aur-layout-login .aur-logo-wrapper .aur-component-logo {
+  width: 100%;
+}
 .aur-layout-login .aur-content-wrapper {
   flex-grow: 1;
   align-items: flex-start;
@@ -54,11 +55,6 @@ html body #__layout {
 .aur-layout-login .aur-rigths {
   padding: 20px;
   text-align: center;
-}
-.aur-layout-login .aur-page {
-  min-width: 300px;
-  width: 100%;
-  max-width: 400px;
 }
 
 .aur-layout-default {
@@ -70,6 +66,12 @@ html body #__layout {
   overflow: auto;
   display: flex;
   flex-direction: column;
+}
+
+.aur-page-login-card {
+  width: 100%;
+  max-width: 400px !important;
+  min-width: 300px;
 }
 
 /*# sourceMappingURL=styles.css.map */

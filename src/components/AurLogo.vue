@@ -1,5 +1,5 @@
 <template>
-    <div class="component component-logo">
+    <div class="aur-component aur-component-logo">
         <img src="./../assets/images/aurora_saas_logo_ligth.svg">
     </div>
 </template>

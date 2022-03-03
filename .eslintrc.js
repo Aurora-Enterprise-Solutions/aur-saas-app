@@ -8,16 +8,13 @@ module.exports = {
     extends: [
         'plugin:nuxt/recommended',
         'plugin:vue/recommended',
-        'plugin:ember-suave/recommended',
     ],
 
-    plugins: [
-        'ember',
-        'ember-suave',
-    ],
+    plugins: [],
 
     // add your custom rules here
     rules: {
+
         // Global
 
         'dot-notation'                      : 'off',
@@ -36,7 +33,7 @@ module.exports = {
         'prefer-promise-reject-errors' : [ 'error', { allowEmptyReject: true }],
         'curly'                        : [ 'error', 'multi-or-nest', 'consistent' ],
         'spaced-comment'               : [ 'error', 'always' ],
-        'comma-dangle'                 : [ 'error', 'always-multiline', { functions: 'never' }],
+        'comma-dangle'                 : [ 'error', 'always-multiline' ],
         'quote-props'                  : [ 'error', 'consistent-as-needed', { keywords: false }],
         'brace-style'                  : [ 'error', 'stroustrup', { allowSingleLine: true }],
         'indent'                       : [ 'error', 4, {
@@ -99,17 +96,10 @@ module.exports = {
                 beforeColon : false,
                 afterColon  : true,
             },
-
-            multiLine: {
-                beforeColon : false,
-                afterColon  : true,
-            },
-
             align: {
                 beforeColon : true,
                 afterColon  : true,
-                on          : 'colon',
-                mode        : 'strict',
+                on          : "colon",
             },
         }],
 
@@ -118,12 +108,6 @@ module.exports = {
         'no-multiple-empty-lines' : [ 'error', { max: 2, maxEOF: 0, maxBOF: 0 }],
         'padded-blocks'           : [ 'error', 'always', { allowSingleLineBlocks: true }],
         'semi'                    : [ 'error', 'never' ],
-
-        // ember-suave
-
-        'ember-suave/no-const-outside-module-scope'   : 'off',
-        'ember-suave/require-access-in-comments'      : 'off',
-        'ember-suave/lines-between-object-properties' : [ 'error', 'always', { exceptAfterSingleLine: true }],
 
         // Nuxt
 
@@ -159,6 +143,20 @@ module.exports = {
 
         'vue/no-use-v-if-with-v-for': [ 'error', {
             allowUsingIterationVar: true,
+        }],
+
+        'vue/max-attributes-per-line': [ 'error', {
+            singleline: {
+                max: 3,
+            },
+            multiline: {
+                max: 3,
+            },
+        }],
+
+        'vue/first-attribute-linebreak': [ 'error', {
+            singleline : 'ignore',
+            multiline  : 'below',
         }],
     },
 }
