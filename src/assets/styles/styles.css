@@ -73,4 +73,14 @@ html body #__layout {
   max-width: 400px !important;
 }
 
+.aur-page-recover-password-card {
+  width: 100%;
+  max-width: 400px !important;
+}
+
+.aur-page-recover-password-confirm-card {
+  width: 100%;
+  max-width: 400px !important;
+}
+
 /*# sourceMappingURL=styles.css.map */

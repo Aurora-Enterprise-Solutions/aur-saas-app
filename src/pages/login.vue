@@ -12,9 +12,9 @@
 
                 <v-card-text>
 
-                    <v-form ref="LoginForm">
+                    <v-form ref="form">
                         <v-row>
-                            <v-col :span="12">
+                            <v-col :cols="12">
                                 <AurTextField
                                     v-model="modelForm.email"
                                     :label="$t('pages.login.field.email.label')"
@@ -24,7 +24,7 @@
                         </v-row>
 
                         <v-row>
-                            <v-col :span="12">
+                            <v-col :cols="12">
                                 <AurTextField
                                     v-model="modelForm.password"
                                     :label="$t('pages.login.field.password.label')"
@@ -35,7 +35,7 @@
                         </v-row>
 
                         <v-row>
-                            <v-col :span="12">
+                            <v-col :cols="12">
                                 <AurTextField
                                     v-model="modelForm.cdn"
                                     :label="$t('pages.login.field.cdn.label')"
@@ -46,7 +46,7 @@
                         </v-row>
 
                         <v-row class="btn-login">
-                            <v-col :span="12">
+                            <v-col :cols="12">
                                 <AurButton
                                     aur-type="secondary"
                                     rounded
@@ -60,7 +60,7 @@
                         </v-row>
 
                         <v-row class="btn-recover">
-                            <v-col :span="12">
+                            <v-col :cols="12">
                                 <AurButton
                                     aur-type="secondary"
                                     rounded
@@ -114,7 +114,7 @@ export default {
 
     beforeMount() {
 
-        this.cdnLocalStorageValue = this.$getLocalStorageCV(this.CV.CDN_KEY_LOCAL_STORAGE)
+        this.cdnLocalStorageValue = this.$getLocalStorageCV(this.$CV.CDN_KEY_LOCAL_STORAGE)
 
         if (localStorage.getItem(this.cdnLocalStorageValue) != null)
             this.modelForm['cdn'] = localStorage.getItem(this.cdnLocalStorageValue)
@@ -124,7 +124,7 @@ export default {
     methods: {
         async submit() {
 
-            if (this.$refs.LoginForm.validate() ) {
+            if (this.$refs.form.validate() ) {
 
                 this.isLogin = true
 
