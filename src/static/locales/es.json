@@ -6,7 +6,11 @@
             "max": "El largo no puede ser mayor a {max}.",
             "password": {
                 "error": "La contraseña no cumple los criterios.",
-                "help": "<p>La contraseña debe cumplir:</p><ul><li>Largo min. 8 caracteres.</li><li>Al menos un caracter en mayúscula.</li><li>Al menos un caracter en minúscula.</li><li>Al menos un caracter numérico.</li></ul>"
+                "help_1_1": "La contraseña debe cumplir:",
+                "help_1_2": "Largo min. 8 caracteres.",
+                "help_1_3": "Al menos un caracter en mayúscula.",
+                "help_1_4": "Al menos un caracter en minúscula.",
+                "help_1_5": "Al menos un caracter numérico."
             },
             "equal_password": "Las contraseñas no coinciden.",
             "no_email": "El correo electrónico ingresado no posee el formato correcto.",
@@ -74,7 +78,8 @@
                 }
             },
             "button": {
-                "send": "Enviar link"
+                "send": "Enviar link",
+                "back": "Volver al inicio"
             }
         },
         "recover_password_confirm": {
@@ -95,7 +100,8 @@
                 }
             },
             "button": {
-                "send": "Cambiar Contraseña"
+                "send": "Cambiar Contraseña",
+                "back": "Volver al inicio"
             }
         }
     }

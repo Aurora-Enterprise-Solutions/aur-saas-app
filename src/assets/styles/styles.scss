@@ -1,5 +1,10 @@
+// Globals
 @import "globals/dom";
 @import "globals/layouts";
 
 
+// Process: auth
+@import "process/auth";
 @import "pages/login";
+@import "pages/recover-password";
+@import "pages/recover-password-confirm";

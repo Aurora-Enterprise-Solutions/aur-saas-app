@@ -1,12 +1,8 @@
 import { CV, getCV, getLocalStorageCV } from '@/static/configuration/cv'
 
 export default {
-    data() {
-
-        return {
-            CV,
-        }
-
+    computed: {
+        $CV: () => CV,
     },
 
     methods: {
