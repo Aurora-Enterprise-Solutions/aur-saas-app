@@ -1,0 +1,13 @@
+html {
+    height: 100%;
+
+    body {
+        margin: 0;
+
+        &,
+        #__nuxt,
+        #__layout {
+            height: 100%;
+        }
+    }
+}

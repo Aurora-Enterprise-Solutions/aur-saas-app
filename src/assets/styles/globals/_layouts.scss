@@ -1,0 +1,65 @@
+.aur-layout {
+    height: 100%;
+    overflow: auto;
+
+    .aur-page {
+        flex-grow: 1;
+        overflow: auto;
+    }
+}
+
+.aur-layout-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .v-application--wrap {
+        width: 100%;
+        align-items: center;
+    }
+
+    .aur-logo-wrapper,
+    .aur-content-wrapper,
+    .aur-rigths {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .aur-logo-wrapper {
+        min-width: 200px;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px 20px 30px 20px;
+
+        .aur-component-logo {
+            width: 100%;
+        }
+    }
+
+    .aur-content-wrapper {
+        flex-grow: 1;
+        align-items: flex-start;
+        padding: 0 20px !important;
+    }
+
+    .aur-rigths {
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+.aur-layout-default {
+    display: flex;
+    flex-direction: column;
+
+    .aur-layout-content {
+        flex-grow: 1;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
