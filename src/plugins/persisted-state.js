@@ -4,7 +4,8 @@ export default ( { store } ) => {
 
     createPersistedState( {
         paths: [
-            'navbar',
+            'user',
+            'company',
         ],
     } )(store)
 

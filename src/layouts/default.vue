@@ -1,10 +1,14 @@
 <template>
-    <v-app class="layout layout-default">
+    <v-theme-provider root>
+        <v-app class="aur-layout aur-layout-default">
+            <AurNavbar />
 
-        <div class="layout-content">
-            <Nuxt />
-        </div>
-    </v-app>
+            <v-main class="aur-content-wrapper">
+                <Nuxt />
+                <AurNavigationDrawer ref="aur-module-navigation" />
+            </v-main>
+        </v-app>
+    </v-theme-provider>
 </template>
 
 <script>

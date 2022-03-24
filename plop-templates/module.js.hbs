@@ -1,0 +1,27 @@
+import { ModuleConfig, ModuleLinkConfig } from "./utils"
+
+export const moduleConfig = new ModuleConfig( {
+    key   : '{{constantCase key}}',
+    title : {
+        es : '',
+        en : '',
+    },
+
+    description: {
+        es : '',
+        en : '',
+    },
+
+    to     : '#',
+    enable : true,
+    links  : [
+        new ModuleLinkConfig( {
+            id    : 'link',
+            label : {
+                es : '',
+                en : '',
+            },
+            to: '#',
+        } ),
+    ],
+} )

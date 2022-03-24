@@ -1,5 +1,5 @@
 {
-    "name": "aur-saas-app",
+    "name": "aur-saas",
     "version": "1.0.0",
     "private": true,
     "scripts": {
@@ -20,9 +20,11 @@
         "@vue/composition-api": "^1.4.9",
         "core-js": "^3.19.3",
         "nuxt": "^2.15.8",
+        "remixicon": "^2.5.0",
         "validator": "^13.7.0",
+        "voca": "^1.4.0",
         "vue": "^2.6.14",
-        "vue-masonry": "^0.14.1",
+        "vue-masonry": "^0.11.8",
         "vue-server-renderer": "^2.6.14",
         "vue-template-compiler": "^2.6.14",
         "vuetify": "^2.6.1",
@@ -41,6 +43,9 @@
         "eslint-plugin-nuxt": "^3.1.0",
         "eslint-plugin-vue": "^8.2.0",
         "jest": "^27.4.4",
+        "plop": "^3.0.5",
+        "sass": "^1.49.9",
+        "sass-loader": "10",
         "vue-jest": "^3.0.4"
     }
 }

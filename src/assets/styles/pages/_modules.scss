@@ -1,0 +1,25 @@
+.aur-page-modules {
+    display: flex;
+    flex-direction: column;
+
+    .aur-module-list {
+        flex-grow: 1;
+        overflow: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 10px 30px;
+
+        .masonry-container {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .aur-version {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-grow: 0;
+    }
+}
