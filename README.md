@@ -1,4 +1,4 @@
-# aur-saas-app
+# aur-saas
 
 ## Build Setup
 

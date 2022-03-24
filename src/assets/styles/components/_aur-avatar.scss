@@ -1,0 +1,16 @@
+.aur-component-avatar {
+    .img-avatar {
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .img-initials {
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        background-color: map-fetch($Avatar, Background color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+}

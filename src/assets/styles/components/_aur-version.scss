@@ -1,0 +1,17 @@
+.aur-component-version {
+    background-color: map-fetch($Application, background-color-contrast);
+
+    padding: 5px 10px;
+    margin: 10px 20px;
+    border-radius: 5px;
+    box-shadow: map-fetch($Application, shadow-color) 0px 0px 10px 3px;
+
+    label {
+        color: $aur-color-white;
+        transition: color 0.3s;
+
+        &:hover {
+            color: map-fetch($Font, Link secondary-color);
+        }
+    }
+}

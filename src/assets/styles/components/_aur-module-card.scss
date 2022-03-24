@@ -1,0 +1,55 @@
+.aur-component-module-card {
+    min-width: 350px;
+    width: 350px;
+    padding: 10px;
+
+    .v-expansion-panel-header {
+        pointer-events: none;
+
+        .card-title {
+            pointer-events: all;
+        }
+
+        .v-expansion-panel-header__icon {
+            pointer-events: all;
+        }
+
+        &--mousedown::before {
+            opacity: 0;
+        }
+
+        &:not(.v-expansion-panel-header--mousedown):focus::before {
+            opacity: 0;
+        }
+    }
+
+    .card-title {
+        cursor: pointer;
+        transition: color 0.2s;
+        padding-right: 10px;
+
+        h5, p {
+            color: inherit;
+            user-select: none;
+            text-align: left;
+        }
+
+        h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        &:hover {
+            color: map-fetch($Font, Link secondary-color);
+        }
+    }
+
+    .link-container {
+        display: flex;
+        flex-direction: column;
+    }
+}

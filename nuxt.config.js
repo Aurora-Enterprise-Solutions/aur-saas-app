@@ -28,7 +28,8 @@ export default {
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@aurora-enterprise-solutions/aur-styles/aur-styles.css',
-        '@/assets/styles/styles.css',
+        '@/assets/styles/styles.scss',
+        'remixicon/fonts/remixicon.css',
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -69,13 +70,13 @@ export default {
     // PWA module configuration: https://go.nuxtjs.dev/pwa
     pwa: {
         manifest: {
-            lang: 'en',
+            lang: 'es',
         },
     },
 
     // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
     vuetify: {
-        customVariables : [ '~/assets/variables.scss' ],
+        customVariables : [  ],
         theme           : {
             dark   : false,
             themes : {
@@ -97,7 +98,7 @@ export default {
     },
 
     router: {
-        middleware: 'auth',
+        // middleware: 'auth',
         extendRoutes(routes, resolve) {
 
             routes.push( {

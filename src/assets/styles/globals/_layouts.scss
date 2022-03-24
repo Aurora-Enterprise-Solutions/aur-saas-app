@@ -56,10 +56,15 @@
     display: flex;
     flex-direction: column;
 
-    .aur-layout-content {
-        flex-grow: 1;
+    .aur-component-navbar.v-app-bar--fixed {
+        z-index: 10;
+    }
+
+    .aur-content-wrapper {
         overflow: auto;
-        display: flex;
-        flex-direction: column;
+
+        .aur-page {
+            height: 100%;
+        }
     }
 }

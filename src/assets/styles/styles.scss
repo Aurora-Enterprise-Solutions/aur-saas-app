@@ -1,10 +1,27 @@
+// aur-styles
+@import '~@aurora-enterprise-solutions/aur-styles/styles/globals/colors';
+@import '~@aurora-enterprise-solutions/aur-styles/styles/globals/theme-provider';
+
+// THEMES
+// Warning! The order of themes is important. Last theme will override previous.
+@import '~@aurora-enterprise-solutions/aur-styles/styles/themes/dark';
+@import '~@aurora-enterprise-solutions/aur-styles/styles/themes/light';
+
 // Globals
 @import "globals/dom";
 @import "globals/layouts";
 
+// Components
+@import "components/aur-module-card";
+@import "components/aur-avatar";
+@import "components/aur-navigation-drawer";
+@import "components/aur-navbar";
+@import "components/aur-version";
 
-// Process: auth
-@import "process/auth";
+// Process: authorization
+@import "variables/auth";
 @import "pages/login";
 @import "pages/recover-password";
 @import "pages/recover-password-confirm";
+
+@import "pages/modules";
