@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@mixin setAurSaasTheme($config, $variable) {
+    $color-variables:
+        'aur-page-fluid-background-color',;
+
+	// Warnings
+    @each $color in $color-variables {
+        @if $color != '' and not map.has-key($variable, $color) {
+            @error "Missing color variable #{$color}.";
+        }
+	}
+
+	// Setup
+    body,
+	.v-application.theme--#{map.get($config, 'name')} {
+        @each $color in $color-variables {
+            --#{$color}: #{map.get($variable, $color)};
+        }
+	}
+}
+
+@import './theme-variables';

@@ -30,14 +30,12 @@
 
 <script>
 import voca from 'voca'
-import NavbarSetupMixin from '@/mixins/navbar-setup'
-import { modules } from '@/static/configuration/modules.js'
+import { modules } from '@@/setup/modules.js'
 
 const Modules = modules.filter( (module) => module.enable).reverse()
 
 export default {
-    name   : 'Modules',
-    mixins : [ NavbarSetupMixin ],
+    name: 'Modules',
 
     data() {
 

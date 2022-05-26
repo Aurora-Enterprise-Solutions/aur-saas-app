@@ -1,6 +1,6 @@
-import { ModuleConfig, ModuleLinkConfig } from "./utils"
+import { Module, ModuleLink } from "../classes/module"
 
-export const moduleConfig = new ModuleConfig( {
+export const moduleConfig = new Module( {
     key   : '{{constantCase key}}',
     title : {
         es : '',
@@ -15,7 +15,7 @@ export const moduleConfig = new ModuleConfig( {
     to     : '#',
     enable : true,
     links  : [
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             id    : 'link',
             label : {
                 es : '',

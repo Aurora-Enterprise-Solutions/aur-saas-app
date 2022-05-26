@@ -1,3 +1,30 @@
-.aur-component-navbar {
+@use "sass:map";
 
+.aur-component-navbar {
+    .aur-company-logo {
+        height: 70%;
+        border-radius: 5px;
+        margin: 0 map.get($sizes, 's');
+    }
+
+    .aur-company-name {
+        font-weight: $font-weight-semibold;
+    }
+
+    .aur-user-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        .aur-user-name {
+            font-weight: $font-weight-semibold;
+        }
+    }
+
+    .aur-user-avatar {
+        height: 70%;
+        border-radius: 25px;
+        margin: 0 map.get($sizes, 's');
+    }
 }

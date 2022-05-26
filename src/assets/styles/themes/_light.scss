@@ -1,0 +1,10 @@
+// THEME: LIGHT
+$config: (
+	'name': 'light',
+);
+
+$variable: (
+    'aur-page-fluid-background-color': $aur-color-white,
+);
+
+@include setAurSaasTheme($config, $variable);

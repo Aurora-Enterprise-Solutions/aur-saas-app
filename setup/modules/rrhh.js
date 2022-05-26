@@ -1,6 +1,6 @@
-import { ModuleConfig, ModuleLinkConfig } from "./utils"
+import { Module, ModuleLink } from "/core/classes/module"
 
-export const moduleConfig = new ModuleConfig( {
+export const moduleConfig = new Module( {
     key   : 'RRHH',
     title : {
         es : 'Recursos Humanos',
@@ -15,7 +15,7 @@ export const moduleConfig = new ModuleConfig( {
     to     : '#',
     enable : true,
     links  : [
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             id    : 'employee_management',
             label : {
                 es : 'Mantenedor de empleados',

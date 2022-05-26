@@ -1,6 +1,6 @@
 export class User {
 
-    constructor( { id, name, lastName, email, avatar, role, roleName } = {} ) {
+    constructor( { id, name, lastName, email, avatar, role, roleName, state } = {} ) {
 
         this.id = id
         this.name = name

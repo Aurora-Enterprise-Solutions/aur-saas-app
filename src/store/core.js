@@ -17,7 +17,6 @@ export const actions = {
             lastName : 'Barrientos',
             avatar   : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSpINRxilsxu9AldotOSirz-KeZEQrczDwATFWDpwlHTFzSMgTxmIpOLZXy6zvzd940nyQIA6WbyPdp9AniiVS8_OOZZLiOkKfJ1Q&usqp=CAU&ec=45707744',
             role     : 'administrator',
-            roleName : 'Administrador',
             email    : 'jesus.barrientos@aurora-enterprise.com',
         }, { root: true } )
 

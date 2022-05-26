@@ -158,5 +158,9 @@ module.exports = {
             singleline : 'ignore',
             multiline  : 'below',
         }],
+
+        'vue/valid-v-slot': [ 'error', {
+            allowModifiers: true,
+        }],
     },
 }

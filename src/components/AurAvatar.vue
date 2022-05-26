@@ -1,5 +1,5 @@
 <template>
-    <div class="aur-component aur-component-avatar">
+    <v-avatar class="aur-component aur-component-avatar">
         <img
             v-if="!!src" :src="src" :alt="alt"
             class="img-avatar"
@@ -10,7 +10,7 @@
                 {{ initials }}
             </h5>
         </div>
-    </div>
+    </v-avatar>
 </template>
 
 <script>

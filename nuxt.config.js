@@ -1,4 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
 import localeMessages from './src/static/locales'
 
 export default {
@@ -36,6 +35,7 @@ export default {
     plugins: [
         { src: '@/plugins/global-mixins', mode: 'client' },
         { src: '@/plugins/masonry', mode: 'client' },
+        { src: '@/plugins/vue-resize', mode: 'client' },
         // '@/plugins/mq',
         // { src: '@/plugins/persisted-state', mode: 'client' },
     ],
@@ -74,27 +74,9 @@ export default {
         },
     },
 
-    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
-    vuetify: {
-        customVariables : [  ],
-        theme           : {
-            dark   : false,
-            themes : {
-                dark: {
-                    primary   : colors.blue.darken2,
-                    accent    : colors.grey.darken3,
-                    secondary : colors.amber.darken3,
-                    info      : colors.teal.lighten1,
-                    warning   : colors.amber.base,
-                    error     : colors.deepOrange.accent4,
-                    success   : colors.green.accent3,
-                },
-            },
-        },
-    },
-
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        // transpile: [ ( { isLegacy } ) => isLegacy && 'vuetify/lib' ],
     },
 
     router: {
@@ -125,6 +107,24 @@ export default {
             fallbackLocale : 'es',
             messages       : localeMessages,
         },
+
+        onBeforeLanguageSwitch: (oldLocale, newLocale, isInitialSetup, context) => {
+
+            const locale = context.i18n.locales.find(l => l.iso === newLocale) || {}
+            const isRTL = locale.dir === 'rtl'
+            if (isInitialSetup)
+                context.app.vuetify.preset.rtl = isRTL // <--- makes vuetify direction work on initial page load
+
+            context.app.vuetify.framework.lang.current = locale.langCode
+            context.app.vuetify.framework.rtl = isRTL
+
+        },
+    },
+
+    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+    vuetify: {
+        optionsPath : '@@/vuetify.options.js',
+        treeShake   : true,
     },
 
     auth: {

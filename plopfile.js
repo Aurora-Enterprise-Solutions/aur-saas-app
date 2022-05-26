@@ -12,12 +12,12 @@ export default function (plop) {
             {
                 type         : 'add',
                 path         : 'src/components/Aur{{pascalCase name}}.vue',
-                templateFile : 'plop-templates/component.vue.hbs',
+                templateFile : '.plop-templates/component.vue.hbs',
             },
             {
                 type         : 'add',
                 path         : 'src/assets/styles/components/_aur-{{dashCase name}}.scss',
-                templateFile : 'plop-templates/component.scss.hbs',
+                templateFile : '.plop-templates/component.scss.hbs',
             },
             {
                 type     : 'modify',
@@ -26,7 +26,7 @@ export default function (plop) {
                 template : '$1\n@import "components/aur-{{dashCase name}}";',
             },
         ],
-    } ),
+    } )
 
     plop.setGenerator('module', {
         description : 'module skeleton',
@@ -38,18 +38,18 @@ export default function (plop) {
         actions: [
             {
                 type         : 'add',
-                path         : 'src/static/configuration/modules/{{lowerCase key}}.js',
-                templateFile : 'plop-templates/module.js.hbs',
+                path         : 'setup/modules/{{lowerCase key}}.js',
+                templateFile : '.plop-templates/module.js.hbs',
             },
             {
                 type     : 'modify',
-                path     : 'src/static/configuration/modules.js',
+                path     : 'setup/modules.js',
                 pattern  : /(\/\/ Modules)/g,
                 template : '$1\nimport { moduleConfig as {{lowerCase key}}Module } from \'./modules/{{lowerCase key}}\'',
             },
             {
                 type     : 'modify',
-                path     : 'src/static/configuration/modules.js',
+                path     : 'setup/modules.js',
                 pattern  : /(export const modules = \[)/g,
                 template : '$1\n    {{lowerCase key}}Module,',
             },

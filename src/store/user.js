@@ -1,8 +1,9 @@
 import { getNameInitials, getFullName } from '@/utils/user'
-import { User } from '../classes/user'
+import { User } from '../../setup/doctypes/user/class'
 
 export const state = () => ( {
-    user: new User(),
+    user : new User(),
+    role : {},
 } )
 
 export const mutations = {
@@ -11,8 +12,8 @@ export const mutations = {
     setLastName : (state, lastName) => state.user.lastName = lastName,
     setEmail    : (state, email) => state.user.email = email,
     setAvatar   : (state, avatar) => state.user.avatar = avatar,
-    setRole     : (state, role) => state.user.role = role,
-    setRoleName : (state, roleName) => state.user.roleName = roleName,
+    setUserRole : (state, role) => state.user.role = role,
+    setRole     : (state, role) => state.role = role,
 }
 
 export const actions = {
@@ -21,8 +22,14 @@ export const actions = {
     setLastName : ( { commit }, value) => commit('setLastName', value),
     setEmail    : ( { commit }, value) => commit('setEmail', value),
     setAvatar   : ( { commit }, value) => commit('setAvatar', value),
-    setRole     : ( { commit }, value) => commit('setRole', value),
-    setRoleName : ( { commit }, value) => commit('setRoleName', value),
+    setUserRole : async ( { commit }, value) => {
+
+        commit('setUserRole', value)
+
+        // const role = await Role.getRoleById(value)
+        // commit('setRole', role)
+
+    },
 
     init: async ( { dispatch }, value) => {
 
@@ -31,8 +38,7 @@ export const actions = {
         dispatch('setLastName', value.lastName)
         dispatch('setEmail', value.email)
         dispatch('setAvatar', value.avatar)
-        dispatch('setRole', value.role)
-        dispatch('setRoleName', value.roleName)
+        await dispatch('setUserRole', value.role)
 
     },
 }
@@ -45,6 +51,6 @@ export const getters = {
     avatar       : (state) => state.user.avatar,
     role         : (state) => state.user.role,
     fullName     : (state) => getFullName.bind(state.user)(),
-    roleName     : (state) => state.user.roleName,
+    roleName     : (state) => state.role.name || '',
     nameInitials : (state) => getNameInitials.bind(state.user)(),
 }

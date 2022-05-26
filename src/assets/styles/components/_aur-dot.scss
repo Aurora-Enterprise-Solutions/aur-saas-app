@@ -1,0 +1,14 @@
+.aur-component-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: map-fetch($Application, primary-color);
+
+    &__inner {
+        border-radius: 25px;
+        height: 4px;
+        width: 4px;
+        display: inline-block;
+        background-color: currentColor;
+    }
+}

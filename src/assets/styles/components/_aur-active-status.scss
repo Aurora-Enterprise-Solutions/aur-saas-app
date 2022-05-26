@@ -1,0 +1,18 @@
+.aur-component-active-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--active .aur-component-dot {
+        color: map-fetch($Application, primary-color);
+    }
+
+    &--inactive .aur-component-dot {
+        color: map-fetch($Application, disabled-color);
+    }
+
+    .aur-component-dot {
+        margin-right: 5px;
+        margin-bottom: 1px;
+    }
+}

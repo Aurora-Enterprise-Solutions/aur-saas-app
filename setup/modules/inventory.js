@@ -1,6 +1,6 @@
-import { ModuleConfig, ModuleLinkConfig } from "./utils"
+import { Module, ModuleLink } from "/core/classes/module"
 
-export const moduleConfig = new ModuleConfig( {
+export const moduleConfig = new Module( {
     key   : 'INVENTORY',
     title : {
         es : 'Bodega e Inventario',
@@ -15,21 +15,21 @@ export const moduleConfig = new ModuleConfig( {
     to     : '#',
     enable : true,
     links  : [
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Mantenedor de bodegas',
                 en : 'Warehouse management',
             },
             to: '#',
         } ),
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Informe de inventario',
                 en : 'Inventory report',
             },
             to: '#',
         } ),
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Programar control',
                 en : 'Schedule control',

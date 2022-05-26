@@ -1,6 +1,6 @@
-import { ModuleConfig, ModuleLinkConfig } from "./utils"
+import { Module, ModuleLink } from "/core/classes/module"
 
-export const moduleConfig = new ModuleConfig( {
+export const moduleConfig = new Module( {
     key   : 'IAM',
     title : {
         es : 'Gestión de Identidades y Accesos (IAM)',
@@ -15,12 +15,12 @@ export const moduleConfig = new ModuleConfig( {
     to     : '',
     enable : true,
     links  : [
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Mantenedor de usuarios',
                 en : '',
             },
-            to: '/maintainer/users',
+            to: '/maintainer/user',
         } ),
         // new ModuleLinkConfig( {
         //     label: {

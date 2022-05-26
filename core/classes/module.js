@@ -1,4 +1,4 @@
-export class ModuleConfig {
+export class Module {
 
     constructor( {
         // module ID
@@ -26,7 +26,7 @@ export class ModuleConfig {
 
 }
 
-export class ModuleLinkConfig {
+export class ModuleLink {
 
     constructor( {
         // link ID

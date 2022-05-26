@@ -1,6 +1,6 @@
-import { ModuleConfig, ModuleLinkConfig } from "./utils"
+import { Module, ModuleLink } from "/core/classes/module"
 
-export const moduleConfig = new ModuleConfig( {
+export const moduleConfig = new Module( {
     key   : 'SALES',
     title : {
         es : 'Ventas',
@@ -15,21 +15,21 @@ export const moduleConfig = new ModuleConfig( {
     to     : '#',
     enable : true,
     links  : [
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Aceptación de pedidos',
                 en : 'Acceptance of orders',
             },
             to: '#',
         } ),
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Seguimiento de pedidos pendientes',
                 en : 'Track pending orders',
             },
             to: '#',
         } ),
-        new ModuleLinkConfig( {
+        new ModuleLink( {
             label: {
                 es : 'Informe de ventas',
                 en : 'Sales reports',
